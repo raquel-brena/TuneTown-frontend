@@ -1,8 +1,9 @@
-export const BoxSidebar = () => {
+export const BoxSidebar = ({ children }: { children: React.ReactNode }) => {
 
 
     return (
-        <div className="flex flex-col h-[50%] rounded-md w-full bg-fume border border-stroke ">
-            a
+        <div className="flex overflow-hidden items-center justify-center flex-col h-[50%] gap-2 rounded-md w-full bg-fume border border-stroke ">
+            {children}
         </div>
-    ) }
+    )
+}
