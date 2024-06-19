@@ -26,34 +26,34 @@ export const MenuLeft = ({
   buttonSelected,
   setButtonSelected,
 }: MenuLeftProps) => {
-  
+
   const [theme, setTheme] = useState<string>("light");
-const { user } = useAuth();
+  const { user } = useAuth();
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme")!);
   }, []);
 
- 
-const items = {
-  home: { src: theme === "light" ? home2 : home, alt: "home", to: "/home" },
-  search: {
-    src: theme === "light" ? search2 : search,
-    alt: "search",
-    to: "/search",
-  },
-  foruns: {
-    src: theme === "light" ? foruns2 : foruns,
-    alt: "foruns",
-    to: "/foruns",
-  },
-  profile: {
-    src: theme === "light" ? profile2 : profile,
-    alt: "profile",
-    to: `/${user?.username}`,
-  },
-  more: { src: theme === "light" ? more : more2, alt: "more", to: "/more" },
-};
+
+  const items = {
+    home: { src: theme === "light" ? home2 : home, alt: "home", to: "/home" },
+    search: {
+      src: theme === "light" ? search2 : search,
+      alt: "search",
+      to: "/search",
+    },
+    foruns: {
+      src: theme === "light" ? foruns2 : foruns,
+      alt: "foruns",
+      to: "/foruns",
+    },
+    profile: {
+      src: theme === "light" ? profile2 : profile,
+      alt: "profile",
+      to: `/${user?.username}`,
+    },
+    more: { src: theme === "light" ? more : more2, alt: "more", to: "/more" },
+  };
 
   return (
     <div
@@ -81,19 +81,19 @@ const items = {
             />
           ))}
         </div>
-       
-          <MenuLeftItem
-            buttonSelected={buttonSelected}
-            setButtonSelected={setButtonSelected}
-            src={config}
-            to={"/config"}
-            alt={"config"}
-          />
-    
+
+        <MenuLeftItem
+          buttonSelected={buttonSelected}
+          setButtonSelected={setButtonSelected}
+          src={config}
+          to={"/config"}
+          alt={"config"}
+        />
+
       </div>
 
       <div
-        className={`absolute pointer-events-none h-[30%] w-80 bg-copacity_theme rotate-45 blur-3xl translate-y-80 `}
+        className={`absolute pointer-events-none h-[100%] w-10 bg-copacity_theme rotate-45 blur-2xl mix-blend-color-burn translate-y-40 `}
       />
     </div>
   );
