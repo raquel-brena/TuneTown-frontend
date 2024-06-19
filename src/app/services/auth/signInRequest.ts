@@ -3,6 +3,12 @@ import AuthGatewayHttp from "../../../infra/gateway/AuthGatewayHttp";
 
 export async function signInRequest(userData: UserLoginDTO) {
     const authGatewayHttp = new AuthGatewayHttp();
-    const response = await authGatewayHttp.signIn(userData);
-    return response;
+
+    try {
+        const response = await authGatewayHttp.signIn(userData);
+        return response;
+    } catch (error: any) {
+        alert(error.message)
+    }
+
 }

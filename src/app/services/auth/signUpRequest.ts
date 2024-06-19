@@ -1,8 +1,14 @@
 import { UserRegisterDTO } from "../../../domain/types/Auth";
 import AuthGatewayHttp from "../../../infra/gateway/AuthGatewayHttp";
+import { toast } from 'sonner'
 
 export async function signUpRequest(userData: UserRegisterDTO) {
   const authGatewayHttp = new AuthGatewayHttp();
-  const response = await authGatewayHttp.signUp(userData);
-  return response;
+  try {
+    const response = await authGatewayHttp.signUp(userData);
+    toast.success('Usuário criado com sucesso!');
+    return response;
+  } catch (error: any) {
+    toast.error('Usuário já cadastrado');
+  }
 }

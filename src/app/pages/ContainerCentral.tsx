@@ -18,7 +18,7 @@ export const ContainerCentral = ({
 
   useEffect(() => {
     const path = location.pathname.split("/")[1];
-    if (!items.includes(path) ) {
+    if (!items.includes(path)) {
       setButtonSelected("profile");
     } else {
       setButtonSelected(path);
@@ -27,6 +27,7 @@ export const ContainerCentral = ({
 
   return (
     <div className="bg-base text-contrast items-center flex fixed w-screen h-screen text-balance">
+
       <div className="absolute hidden md:flex md:top-4 md:z-40 md:left-4">
         <ThemeButton />
       </div>

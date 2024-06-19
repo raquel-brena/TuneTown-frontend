@@ -16,14 +16,19 @@ export default class AuthGatewayHttp {
     try {
       const response = await this.httpClient.post(`${this.url}/signin`, data);
       return response;
-    } catch (error) {
+    } catch (error: any) {
       console.error(`Error in signIn: ${error}`);
-      throw error;
+      throw new Error(error.response.data.message);
     }
   }
 
   async signUp(data: UserRegisterDTO): Promise<any> {
-    const response = await this.httpClient.post(`${this.url}/signup`, data);
-    return response.data;
+
+    try {
+      const response = await this.httpClient.post(`${this.url}/signup`, data);
+      return response;
+    } catch (error: any) {
+      throw new Error(error.response.data.message);
+    }
   }
 }
