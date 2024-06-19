@@ -1,3 +1,4 @@
+import { toast } from "sonner";
 import { UserLoginDTO } from "../../../domain/types/Auth";
 import AuthGatewayHttp from "../../../infra/gateway/AuthGatewayHttp";
 
@@ -8,7 +9,7 @@ export async function signInRequest(userData: UserLoginDTO) {
         const response = await authGatewayHttp.signIn(userData);
         return response;
     } catch (error: any) {
-        alert(error.message)
+        toast.error(error.message)
     }
 
 }
