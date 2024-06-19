@@ -9,6 +9,6 @@ export async function signUpRequest(userData: UserRegisterDTO) {
     toast.success('Usuário criado com sucesso!');
     return response;
   } catch (error: any) {
-    toast.error('Usuário já cadastrado');
+    toast.error(error.message);
   }
 }
