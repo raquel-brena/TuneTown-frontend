@@ -15,62 +15,69 @@ import { Toaster } from 'sonner'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <ProtectedComponent>
-        <InitialPage />
-      </ProtectedComponent>
-    ),
+    element: <InitialPage />,
     errorElement: <div>Not Found</div>,
   },
   {
     path: "/:profileId",
     element: (
-      <ContainerCentral>
-        <Profile />
-      </ContainerCentral>
+      <ProtectedComponent>
+        <ContainerCentral>
+          <Profile />
+        </ContainerCentral>
+      </ProtectedComponent>
     ),
   },
   {
     path: "/home",
     element: (
-      <ContainerCentral>
-        <Feed />
-      </ContainerCentral>
+      <ProtectedComponent>
+        <ContainerCentral>
+          <Feed />
+        </ContainerCentral>
+      </ProtectedComponent>
     ),
   },
   {
     path: "/foruns",
     element: (
-      <ContainerCentral>
-        <div>foruns</div>
-      </ContainerCentral>
+      <ProtectedComponent>
+        <ContainerCentral>
+          <div>foruns</div>
+        </ContainerCentral>
+      </ProtectedComponent>
     ),
   },
   {
     path: "/search",
     element: (
-      <ContainerCentral>
-        <div>search</div>
-      </ContainerCentral>
+      <ProtectedComponent>
+        <ContainerCentral>
+          <div>search</div>
+        </ContainerCentral>
+      </ProtectedComponent>
     ),
   },
   {
     path: "/more",
     element: (
-      <ContainerCentral>
-        <div>more</div>
-      </ContainerCentral>
+      <ProtectedComponent>
+        <ContainerCentral>
+          <div>more</div>
+        </ContainerCentral>
+      </ProtectedComponent>
     ),
   },
   {
     path: "/config",
     element: (
-      <ContainerCentral>
-        <div>config</div>
-      </ContainerCentral>
+      <ProtectedComponent>
+        <ContainerCentral>
+          <div>config</div>
+        </ContainerCentral>
+      </ProtectedComponent>
     ),
   },
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
