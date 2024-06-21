@@ -22,7 +22,7 @@ export const MenuLeftItem = ({
 
   return (
     <Link
-      to={to} // Adicione esta linha
+      to={to} 
       onClick={() => selectMenu(alt)}
       className="flex  h-10 p-6 fill-contrast stroke-contrastw-full items-center justify-center group"
     >
