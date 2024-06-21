@@ -5,7 +5,7 @@ export type Profile = {
   userId: string;
   bio?: string | null;
   favoriteSong?: string | null;
-  avatarUrl?: string | null;
+  avatarUrl?: string | undefined; // Adjusted to match the expected type
   posts: Post[] | null;
   followers: UserEntity[] | null;
   following: UserEntity[] | null;

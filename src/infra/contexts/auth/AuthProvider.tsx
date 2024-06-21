@@ -1,8 +1,7 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { AuthContext } from "./UseAuth";
 import AxiosAdapter from "../../http/AxiosAdapter";
-import { User } from "../../../domain/types/User";
-import { signUpRequest } from "../../../app/services/auth/signUpRequest";
+import { UserWithProfile } from "../../../domain/types/User";
 import { signInRequest } from "../../../app/services/auth/signInRequest";
 import { UserLoginDTO } from "../../../domain/types/Auth";
 
@@ -14,13 +13,15 @@ export default function AuthProvider({
   children
 }: AuthProviderProps) {
 
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserWithProfile | null>(null);
   const [loading, setLoading] = useState(true);
   
   const httpClient = new AxiosAdapter();
 
     useEffect(() => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("tunetown@token");
+
+      //buscar user pelo token
 
       if (token) {
        httpClient.setHeaders({ Authorization: `Bearer ${token}` });
@@ -33,13 +34,13 @@ export default function AuthProvider({
       async function handleLogin({email, password} : UserLoginDTO) {
       setLoading(true)
 
-      const data =  await signInRequest({email, password})
-      console.log("data: ", data)
-      localStorage.setItem("token", JSON.stringify(data.token));
-      httpClient.setHeaders( `Bearer ${data.token}`);
+      const data = await signInRequest({email, password})
 
-          setUser(data.user);
-          setLoading(false);
+      console.log("data: ", data)
+      localStorage.setItem("tunetown@token", JSON.stringify(data.token));
+      httpClient.setHeaders( `Bearer ${data.token}`);
+      setUser(data.user);
+      setLoading(false);
       }
 
       function handleLogout() {

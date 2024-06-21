@@ -2,17 +2,28 @@
 interface PhotoProps {
   size?: string;
   bg?: string;
+  src?: string | undefined;
 }
-export const Photo = ({ size, bg }: PhotoProps) => {
-
+export const Photo = ({ size, bg, src }: PhotoProps) => {
   return (
-    <div
+    src ? ( <img
       style={{
         height: `${size}rem`,
         width: `${size}rem`,
         backgroundColor: `#${bg}`,
       }}
       className={`flex-none rounded-full ${!bg ? "bg-[#d9d9d9]" : ""}`}
-    />
-  );
+    src={src}/> ) 
+    : ( 
+      <div
+      style={{
+        height: `${size}rem`,
+        width: `${size}rem`,
+        backgroundColor: `#${bg}`,
+      }}
+      className={`flex-none rounded-full ${!bg ? "bg-[#d9d9d9]" : ""}`}
+  /> 
+  ) 
+  
+);
 }

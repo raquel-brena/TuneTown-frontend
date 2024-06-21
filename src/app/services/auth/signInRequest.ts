@@ -6,8 +6,7 @@ export async function signInRequest(userData: UserLoginDTO) {
     const authGatewayHttp = new AuthGatewayHttp();
 
     try {
-        const response = await authGatewayHttp.signIn(userData);
-        return response;
+        return await authGatewayHttp.signIn(userData);
     } catch (error: any) {
         toast.error(error.message)
     }
