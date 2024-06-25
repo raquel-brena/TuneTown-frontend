@@ -1,4 +1,3 @@
-
 import logo from "../assets/logo.svg";
 import spotify_logo from "../assets/spotify_logo.svg";
 import { ThemeButton } from "../components/ThemeButton";
@@ -6,10 +5,33 @@ import { Button } from "../components/Button";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FormSignIn } from "../components/forms/FormSignIn";
 import { FormSignUp } from "../components/forms/FormSignUp";
+import { useEffect, useState } from "react";
 
-export const InitialPage = () => {
+interface InitialPageProps {
+  name?: string;
+  email?: string;
+  username?: string;
+  avatarUrl?: string;
+  form?: 'signUp' | 'signIn';
+}
+
+export const InitialPage = ({
+  name,
+  email,
+  username,
+  form,
+ avatarUrl, 
+}: InitialPageProps) => {
+  const [signUpOpen, setSignUpOpen] = useState(false);
+  const [signInOpen, setSignInOpen] = useState(false);
+
+  useEffect(() => {
+    form === "signUp" ? setSignUpOpen(true) : setSignUpOpen(false);
+    form === "signIn" ? setSignInOpen(true) : setSignInOpen(false);
+  }, []);
+
   const AUTH_URL: string =
-    "https://accounts.spotify.com/authorize?client_id=8b945ef10ea24755b83ac50cede405a0&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
+    "https://accounts.spotify.com/authorize?client_id=005ea22dc390451090dbba1fc8c8a23a&response_type=code&redirect_uri=http://localhost:3000/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
 
   return (
     <div className="bg-base text-contrast justify-center items-center flex fixed w-screen h-screen text-balance">
@@ -39,7 +61,10 @@ export const InitialPage = () => {
           </h1>
           <div className="justify-center overflow-hidden">
             <Button
-              onClick={() => window.open(AUTH_URL, "_blank")}
+              onClick={() => {
+                console.log("Clicou no botão, URL:", AUTH_URL);
+                window.location.href = AUTH_URL;
+              }}
               bg="bg-white"
             >
               <div className="flex text-[#161616] relative gap-3">
@@ -59,21 +84,25 @@ export const InitialPage = () => {
             </div>
           </div>
 
-          <Dialog.Root>
-            <Dialog.Trigger>
-              <Button>Criar conta</Button>
+          <Dialog.Root open={signUpOpen}>
+            <Dialog.Trigger asChild>
+              <Button onClick={() => setSignUpOpen(true)}>Criar conta</Button>
             </Dialog.Trigger>
 
             <Dialog.Portal>
               <Dialog.Overlay className="bg-[#292929]  opacity-50 data-[state=open]:animate-overlayShow fixed inset-0" />
               <Dialog.Content className=" bg-fume border border-stroke text-contrast stroke-stroke data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
                 <Dialog.Close asChild>
-                  <button className="flex self-end" aria-label="Close">
+                  <button
+                    className="flex self-end"
+                    aria-label="Close"
+                    onClick={() => setSignUpOpen(false)}
+                  >
                     X
                   </button>
                 </Dialog.Close>
 
-                <FormSignUp />
+                <FormSignUp name={name} email={email} username={username} />
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>
@@ -85,13 +114,15 @@ export const InitialPage = () => {
             Uso de <a className="underline">Cookies</a>.
           </p>
 
-          <Dialog.Root>
-            <Dialog.Trigger>
+          <Dialog.Root open={signInOpen}>
+            <Dialog.Trigger asChild>
               <div className="space-y-3 text-left">
                 <h1 className="font-semibold text-xl outline-none pointer-events-none">
                   Já tem uma conta?
                 </h1>
-                <Button full>Entrar com o e-mail</Button>
+                <Button full onClick={() => setSignInOpen(true)}>
+                  Entrar com o e-mail
+                </Button>
               </div>
             </Dialog.Trigger>
 
@@ -99,7 +130,11 @@ export const InitialPage = () => {
               <Dialog.Overlay className="bg-[#292929] opacity-50  data-[state=open]:animate-overlayShow fixed inset-0" />
               <Dialog.Content className="text-contrast border border-stroke data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[450px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-fume stroke-stroke p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
                 <Dialog.Close asChild>
-                  <button className="flex self-end" aria-label="Close">
+                  <button
+                    className="flex self-end"
+                    aria-label="Close"
+                    onClick={() => setSignInOpen(false)}
+                  >
                     X
                   </button>
                 </Dialog.Close>
