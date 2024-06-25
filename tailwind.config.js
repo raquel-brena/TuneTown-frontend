@@ -15,7 +15,7 @@ export default {
         post: "var(--post)",
         puro: "var(--puro)",
         copacity_25: "var(--copacity-25)",
-        copacity_theme: "var(--copacity-theme)"
+        copacity_theme: "var(--copacity-theme)",
       },
       textColor: {
         theme: "var(--theme)",
@@ -25,9 +25,19 @@ export default {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        slideInFromRight: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideOutToRight: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "slow-spin": "spin 5s linear 1 ",
+        "slide-in-from-right": "slideInFromRight 0.5s ease-in-out ",
+        "slide-out-to-right": "slideOutToRight 0.3s ease-in-out ",
       },
     },
   },
