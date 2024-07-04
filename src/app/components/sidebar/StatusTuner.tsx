@@ -3,7 +3,9 @@ import { TbMusicStar } from "react-icons/tb";
 
 export const StatusTuner = () => {
   return (
-    <div className="md:flex relative h-[16%]  items-center  text-sm w-full p-2 border-l border-stroke hidden ">
+    <div className="md:flex relative h-[16%] 
+    items-center  text-sm w-full p-2 border-l 
+    border-stroke hidden">
       <Photo size="2.5" bg="B02851" />
       <div className="w-full px-3" >
         <div className="flex justify-between w-full">

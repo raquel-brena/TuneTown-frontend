@@ -102,7 +102,7 @@ export const InitialPage = ({
                   </button>
                 </Dialog.Close>
 
-                <FormSignUp name={name} email={email} username={username} />
+                <FormSignUp avatarUrl={avatarUrl} name={name} email={email} username={username} />
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>

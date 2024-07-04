@@ -2,7 +2,7 @@ import { MenuLeft } from "../components/menuLeft/MenuLeft.tsx";
 import { ThemeButton } from "../components/ThemeButton.tsx";
 import { Sidebar } from "../components/sidebar/Sidebar.tsx";
 import { useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const ContainerCentral = ({
   children,
