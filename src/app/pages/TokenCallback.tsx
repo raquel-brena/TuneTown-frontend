@@ -25,7 +25,6 @@ export const TokenCallback = () => {
         return;
       }
 
-      console.log("Authorization code:", code);
       try {
 
          const tokenResponse = await axios.post(
@@ -43,9 +42,9 @@ export const TokenCallback = () => {
            }
          );
 
-        console.log('Token response:', tokenResponse.data);
+       
         const accessToken = tokenResponse.data.access_token;
-        console.log("Access token:", accessToken);
+   
 
         setTokenSpotify(accessToken);
           localStorage.setItem(
@@ -61,12 +60,6 @@ export const TokenCallback = () => {
         });
 
         setUserData(userResponse.data);
-
-        console.log({
-          access_token: accessToken,
-          user: userResponse.data,
-        });
-        console.log("User data:", userResponse.data.images[1].url);
 
         // Redirecione ou armazene os dados do usuário conforme necessário
         // navigate("/home", {

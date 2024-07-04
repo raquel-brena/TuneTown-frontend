@@ -12,8 +12,10 @@ import {
   config,
   config2
 } from "../../assets/left_menu";
+import logo_small_purple from "../../assets/logo_small_purple.svg";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../infra/contexts/auth/UseAuth";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../Sheet";
 
 
 type MenuLeftProps = {
@@ -58,13 +60,17 @@ export const MenuLeft = ({
   return (
     <div
       className="md:h-full md:w-[10%] 
-      justify-center items-center flex 
+      justify-around items-center flex 
       h-12 w-full absolute bottom-0 border-box 
-      border border-stroke md:relative overflow-hidden md:z-0 z-30"
+      border border-stroke md:relative md:flex-col md:items-center
+      overflow-hidden md:z-0 z-30 "
     >
+      <div className="flex w-full justify-end  mr-2">
+        <img className="size-16 flex" src={logo_small_purple} />
+      </div>
       <div
         className="h-2/3 w-full justify-between sm:flex-row text-contrast gap-4 
-      md:flex-col flex md:bg-transparent bg-fume items-end mr-2"
+      md:flex-col flex md:bg-transparent bg-fume items-end mr-2 "
       >
         <div
           className="h-[80%] flex md:flex-col md:bg-transparent 
@@ -81,15 +87,15 @@ export const MenuLeft = ({
             />
           ))}
         </div>
-
+      </div>
+      <div className="flex w-full justify-end  mr-2">
+        {" "}
         <MenuLeftItem
           buttonSelected={buttonSelected}
           setButtonSelected={setButtonSelected}
           src={config}
-          to={"/config"}
           alt={"config"}
         />
-
       </div>
 
       <div

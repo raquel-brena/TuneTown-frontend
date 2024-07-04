@@ -14,7 +14,7 @@ export const Profile = () => {
   const { profileId } = useParams<{ profileId: string }>();
   const [selectedButton, setSelectedButton] = useState<string>("posts");
 
-  console.log("profileId: ", user?.name);
+
   const items = ["posts", "foruns", "curtidas"];
 
   return (

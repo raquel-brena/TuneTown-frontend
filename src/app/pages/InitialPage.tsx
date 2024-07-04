@@ -62,7 +62,7 @@ export const InitialPage = ({
           <div className="justify-center overflow-hidden">
             <Button
               onClick={() => {
-                console.log("Clicou no botão, URL:", AUTH_URL);
+              
                 window.location.href = AUTH_URL;
               }}
               bg="bg-white"

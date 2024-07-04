@@ -23,7 +23,7 @@ export const MenuFeed = ({ userAvatar, username }: MenuFeedProps) => {
           <Photo size="3" src={userAvatar} />
 
           <div className="w-full h-full">
-            <input className="outline-none bg-copacity_25 w-full h-full rounded-md " />
+            <input className="outline-none bg-copacity_25 w-full h-full rounded-md " placeholder="" />
             <div className="w-full gap-4 mt-5 flex items-end justify-around ">
               <MenuitemShare src={music_pink_logo} name="Música" />
               <MenuitemShare src={playlist_purple_logo} name="Playlist" />

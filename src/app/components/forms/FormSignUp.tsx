@@ -1,21 +1,28 @@
 
-import { UserRegisterDTO } from "../../../domain/types/Auth";
+import { UserRegister } from "../../../domain/types/Auth";
 import Input from "../Input";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button";
 import { signUpRequest } from "../../services/auth/signUpRequest";
 
-export const FormSignUp = () => {
-  const {
-    register,
-    handleSubmit,
-    watch
-  } = useForm<UserRegisterDTO>();
+interface FormSignUpProps {
+  name?: string;
+  email?: string;
+  username?: string;
+  avatarUrl?: string;
+}
+export const FormSignUp = ({ name, email, username, avatarUrl }: FormSignUpProps) => {
+  const { register, handleSubmit, watch } = useForm<UserRegister>({
+    defaultValues: {
+      name,
+      email,
+      username,
+    },
+  });
 
-  async function onSubmit (data: UserRegisterDTO) {
-    console.log("enviado: ", data);
-    const response = await signUpRequest(data)
-     console.log("response: ", response);
+  async function onSubmit(data: UserRegister) {
+    const dataWithAvatar = { ...data, avatarUrl };
+    const response = await signUpRequest(dataWithAvatar);
   }
 
   return (

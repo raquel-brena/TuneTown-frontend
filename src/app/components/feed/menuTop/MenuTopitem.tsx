@@ -1,5 +1,6 @@
 import { Img } from "../../Img";
 import * as Dialog from "@radix-ui/react-dialog";
+import { MakeAPost } from "../MakeAPost";
 
 type MenuitemShareProps = {
 src :string;
@@ -26,22 +27,17 @@ export const MenuitemShare = ({ src, alt, name }: MenuitemShareProps) => {
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="bg-base opacity-50 data-[state=open]:animate-overlayShow fixed inset-0" />
+        <Dialog.Overlay className="bg-[#292929] opacity-50 data-[state=open]:animate-overlayShow fixed inset-0" />
         <Dialog.Content
-          className=" bg-black border border-stroke text-contrast 
+          className=" bg-fume border border-stroke text-contrast 
         rounded-xl
-        stroke-stroke data-[state=open]:animate-contentShow fixed top-[30%] 
-        left-[50%] w-[90vw] max-w-[30rem] h-[16rem] max-h-[30rem] translate-x-[-50%] 
+        stroke-stroke data-[state=open]:animate-contentShow fixed top-[40%] 
+        left-[50%] w-[90vw] max-w-[30rem] h-[20rem] max-h-[45rem] translate-x-[-50%] 
         translate-y-[-50%]  px-7 py-3
         shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] 
         focus:outline-none"
         >
-          <Dialog.Close asChild>
-            <button className="flex self-end" aria-label="Close">
-              X
-            </button>
-          </Dialog.Close>
-          teste
+          <MakeAPost />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

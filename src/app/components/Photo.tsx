@@ -2,7 +2,7 @@
 interface PhotoProps {
   size?: string;
   bg?: string;
-  src?: string | undefined;
+  src?: string | null;
 }
 export const Photo = ({ size, bg, src }: PhotoProps) => {
   return (

@@ -1,6 +1,6 @@
 import { Button } from "../Button";
 import Input from "../Input";
-import { UserLoginDTO } from "../../../domain/types/Auth";
+import { UserLogin } from "../../../domain/types/Auth";
 import spotify_logo from "../../assets/spotify_logo.svg";
 import { useAuth } from "../../../infra/contexts/auth/UseAuth";
 import { useNavigate } from "react-router-dom";
@@ -12,18 +12,18 @@ export const FormSignIn = () => {
   const {
     register,
     handleSubmit
-  } = useForm<UserLoginDTO>();
+  } = useForm<UserLogin>();
   
    const navigate = useNavigate();
 
 useEffect(() => {
   if (user) {
-     console.log("navigate");
+  
     navigate(`/${user.username}`);
   }
 }, [user, loading]);
 
-function sendSubmit (data: UserLoginDTO) {
+function sendSubmit (data: UserLogin) {
   handleLogin(data);
 
   if (user) {

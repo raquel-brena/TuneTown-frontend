@@ -2,6 +2,7 @@
 import { Photo } from "../Photo";
 import { IoHeartOutline } from "react-icons/io5";
 import { FaRegCommentAlt } from "react-icons/fa";
+import { HeartButton } from "./HeartButton";
 
 
 interface CardProps {
@@ -26,17 +27,12 @@ export function Card({ title, content, created_at }: CardProps) {
         </div>
       </div>
 
-      <div className="flex justify-center max-h-full text-justify text-pretty p-3 px-7">
-        {content}
+      <div className="flex justify-center max-h-full  text-pretty p-3 px-7 w-full">
+        <div className="flex-grow">{content}</div>
       </div>
 
       <div className="flex w-full h-[20%] gap-6 px-7 ">
-        <button
-          className="hover:text-rose-500
-        hover:border-b-violet-600"
-        >
-          <IoHeartOutline size={20} />
-        </button>
+        <HeartButton />
         <button
           className="hover:text-blue-500
         hover:border-b-violet-600"
