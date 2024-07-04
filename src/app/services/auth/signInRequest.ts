@@ -1,14 +1,17 @@
 import { toast } from "sonner";
-import { UserLoginDTO } from "../../../domain/types/Auth";
+import { UserLogin } from "../../../domain/types/Auth";
 import AuthGatewayHttp from "../../../infra/gateway/AuthGatewayHttp";
 
-export async function signInRequest(userData: UserLoginDTO) {
+export async function signInRequest(userData: UserLogin) {
     const authGatewayHttp = new AuthGatewayHttp();
 
     try {
         return await authGatewayHttp.signIn(userData);
     } catch (error: any) {
-        toast.error(error.message)
-    }
+        console.error("Erro ao fazer requisição:", error);
+        toast.error("Ocorreu um erro, por favor tente novamente.");
+      }
+          
+    
 
 }
