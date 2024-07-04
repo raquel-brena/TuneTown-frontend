@@ -1,3 +1,4 @@
+import { UserRegister } from "./Auth";
 import { Post } from "./Post";
 import { UserEntity } from "./User";
 
@@ -5,7 +6,7 @@ export type Profile = {
   userId: string;
   bio?: string | null;
   favoriteSong?: string | null;
-  avatarUrl?: string | undefined; // Adjusted to match the expected type
+  avatarUrl?: string | null;
   posts: Post[] | null;
   followers: UserEntity[] | null;
   following: UserEntity[] | null;
@@ -16,4 +17,14 @@ export type ProfileEntity = Profile & {
   lastLoginAt: string;
   createdAt: string;
   updatedAt: string;
+};
+
+export type EditProfile = UserRegister & {
+  avatarURL?: string | null;
+  bio?: string | null;
+  favoriteSong?: string;
+  password: null;
+};
+
+export type EditConfig = UserRegister & {
 };
