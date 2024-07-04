@@ -12,7 +12,7 @@ export const ProtectedComponent = ({ children, isPrivate }: ProtectedComponentPr
     const navigate = useNavigate();
 
     useEffect(() => {
-         if (user == null || (isPrivate && !user)) {
+         if (user == null || (isPrivate && !user) ) {
            handleLogout();
            navigate("/", { replace: true });
          }
