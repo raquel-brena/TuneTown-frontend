@@ -11,6 +11,7 @@ import AuthProvider from "./infra/contexts/auth/AuthProvider.tsx";
 import { ProtectedComponent } from './infra/contexts/auth/ProtectedRoute.tsx';
 import { Feed } from './app/pages/Feed.tsx';
 import { Toaster } from 'sonner'
+import { TokenCallback } from './app/pages/TokenCallback.tsx';
 
 const router = createBrowserRouter([
   {
@@ -51,31 +52,33 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: (
-      <ProtectedComponent>
-        <ContainerCentral>
-          <div>search</div>
-        </ContainerCentral>
-      </ProtectedComponent>
+      <ContainerCentral>
+        <div>search</div>
+      </ContainerCentral>
     ),
   },
   {
     path: "/more",
     element: (
-      <ProtectedComponent>
-        <ContainerCentral>
-          <div>more</div>
-        </ContainerCentral>
-      </ProtectedComponent>
+      <ContainerCentral>
+        <div>more</div>
+      </ContainerCentral>
     ),
   },
   {
     path: "/config",
     element: (
-      <ProtectedComponent>
-        <ContainerCentral>
-          <div>config</div>
-        </ContainerCentral>
-      </ProtectedComponent>
+      <ContainerCentral>
+        <div>config</div>
+      </ContainerCentral>
+    ),
+  },
+  {
+    path: "/callback",
+    element: (
+      <div>
+        <TokenCallback />
+      </div>
     ),
   },
 ]);
