@@ -22,6 +22,13 @@ export default class UserGatewayHttp {
     return response.data;
   }
 
+  async getProfileByUsername(username: string): Promise<Profile> {
+    const response = await this.httpClient.get(
+      `${this.url}/profile/getByUsername/${username}`
+    );
+    return response.data;
+  }
+
   async signUp(userData: any): Promise<any> {
     const response = await this.httpClient.post(`${this.url}/user/`, userData);
     return response.data;
