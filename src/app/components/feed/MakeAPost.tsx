@@ -16,9 +16,7 @@ export const MakeAPost = () => {
 
   const { tokenSpotify } = useAuth();
 
-  const clientId = "005ea22dc390451090dbba1fc8c8a23a";
-  const clientSecret = "5293750eea0a4e578449673c5588c21d";
-  const redirectUri = "http://localhost:3000/callback";
+  
 
 
 useEffect(() => {

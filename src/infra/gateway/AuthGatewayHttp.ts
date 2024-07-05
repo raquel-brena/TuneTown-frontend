@@ -1,4 +1,4 @@
-import { UserLogin, UserRegister } from "../../domain/types/Auth";
+import { UserLogin, UserRegister, userSpotifyToken } from "../../domain/types/Auth";
 import AxiosAdapter from "../http/AxiosAdapter";
 import IHttpClient from "../http/IHttpClient";
 
@@ -31,9 +31,9 @@ export default class AuthGatewayHttp {
     }
   }
 
-  async storeTokenSpotify(data: any): Promise<any> {
+  async storeTokenSpotify({ refreshToken, accessToken, userId }: userSpotifyToken): Promise<any> {
     try {
-      const response = await this.httpClient.post(`${this.url}/spotifyTokens`, data);
+      const response = await this.httpClient.post(`${this.url}/spotifyTokens`, { refreshToken, accessToken, userId });
       return response;
     } catch (error: any) {
       throw new Error(error.response.data.message);

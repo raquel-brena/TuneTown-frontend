@@ -50,9 +50,9 @@ export default function AuthProvider({
         httpClient.setHeaders(null);
       }
 
-     async function storeTokenSpotify({accessToken, refreshToken}: userSpotifyToken) {
+     async function storeTokenSpotify(accessToken:string, refreshToken:string) {
         setTokenSpotify(accessToken);
-        const data = await storeTokenSpotifyService({accessToken, refreshToken, userId: user?.profile?.userId});
+        const data = await storeTokenSpotifyService({accessToken, refreshToken, userId: user!.profile!.userId});
       
         localStorage.setItem("tunetown@tokenSpotify", JSON.stringify(accessToken));
       }

@@ -1,18 +1,19 @@
 import { toast } from "sonner";
-import { userToken } from "../../../domain/types/Auth";
 import AuthGatewayHttp from "../../../infra/gateway/AuthGatewayHttp";
+import { userSpotifyToken } from "../../../domain/types/Auth";
 
 export async function storeTokenSpotifyService({
   accessToken,
   refreshToken,
   userId
-}: userToken) {
+}: userSpotifyToken) {
   const authGatewayHttp = new AuthGatewayHttp();
 
   try {
     const response = await authGatewayHttp.storeTokenSpotify({
       accessToken,
       refreshToken,
+      userId
     });
     return response;
   } catch (error: any) {

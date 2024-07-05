@@ -10,8 +10,8 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import AuthProvider from "./infra/contexts/auth/AuthProvider.tsx";
 import { ProtectedComponent } from './infra/contexts/auth/ProtectedRoute.tsx';
 import { Feed } from './app/pages/Feed.tsx';
-import { Toaster } from 'sonner'
 import { TokenCallback } from './app/pages/TokenCallback.tsx';
+import { Toaster } from 'sonner';
 
 const router = createBrowserRouter([
   {
