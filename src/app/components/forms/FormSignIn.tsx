@@ -14,11 +14,10 @@ export const FormSignIn = () => {
     handleSubmit
   } = useForm<UserLogin>();
   
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
 useEffect(() => {
   if (user) {
-  
     navigate(`/${user.username}`);
   }
 }, [user, loading]);

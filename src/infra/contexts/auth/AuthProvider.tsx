@@ -3,11 +3,13 @@ import { AuthContext } from "./UseAuth";
 import AxiosAdapter from "../../http/AxiosAdapter";
 import { UserWithProfile } from "../../../domain/types/User";
 import { signInRequest } from "../../../app/services/auth/signInRequest";
-import { UserLogin } from "../../../domain/types/Auth";
+import { UserLogin, userSpotifyToken } from "../../../domain/types/Auth";
+import { storeTokenSpotifyService } from "../../../app/services/auth/storeTokenSpotifyService";
 
 type AuthProviderProps = PropsWithChildren & {
   isSignedIn?: boolean;
 };
+
 
 export default function AuthProvider({
   children
@@ -48,6 +50,25 @@ export default function AuthProvider({
         httpClient.setHeaders(null);
       }
 
-  return <AuthContext.Provider value={{loading, user, handleLogin, handleLogout, tokenSpotify, setTokenSpotify
-  }}>{children}</AuthContext.Provider>;
+     async function storeTokenSpotify({accessToken, refreshToken}: userSpotifyToken) {
+        setTokenSpotify(accessToken);
+        const data = await storeTokenSpotifyService({accessToken, refreshToken, userId: user?.profile?.userId});
+      
+        localStorage.setItem("tunetown@tokenSpotify", JSON.stringify(accessToken));
+      }
+
+  return (
+    <AuthContext.Provider
+      value={{
+        loading,
+        user,
+        handleLogin,
+        handleLogout,
+        tokenSpotify,
+        storeTokenSpotify,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }

@@ -4,10 +4,10 @@ export const FavoriteMusic = () => {
 
 
     return (
-      <div className="flex px-3 gap-3 w-3/4">
+      <div className="flex md:px-3 gap-3 h-1/2 w-3/4">
         <img className="flex size-20" src={sza_music} />
         <div className="flex flex-col">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 md:text-md text-sm">
             <p>Snooze - SZA</p>
             <div>
               <MdFindReplace />

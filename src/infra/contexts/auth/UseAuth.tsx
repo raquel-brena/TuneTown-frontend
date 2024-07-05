@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import {  UserWithProfile } from "../../../domain/types/User";
+import { userSpotifyToken } from "../../../domain/types/Auth";
 
 type AuthContextType = {
   user: UserWithProfile | null;
@@ -7,14 +8,14 @@ type AuthContextType = {
   handleLogin: (data: { email: string; password: string }) => Promise<void>;
   handleLogout: () => void;
   tokenSpotify: string | null;
-  setTokenSpotify: (token: string) => void;
+  storeTokenSpotify: ({ accessToken, refreshToken }: userSpotifyToken) => void;
 };
 
 export const AuthContext = createContext<AuthContextType | undefined>({
   user: null,
   loading: true,
   tokenSpotify: null,
-  setTokenSpotify: () => {},
+  storeTokenSpotify: () => {},
   handleLogin: async () => {},
   handleLogout: () => {},
 } as AuthContextType);

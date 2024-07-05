@@ -13,7 +13,9 @@ export default class AuthGatewayHttp {
 
   async signIn(data: UserLogin): Promise<any> {
     try {
-      return await this.httpClient.post(`${this.url}/signin`, data);
+      const response = await this.httpClient.post(`${this.url}/signin`, data);
+      console.log(response);
+      return response;
     } catch (error: any) {
       console.error(`Error in signIn: ${error}`);
       throw new Error(error.response.data.message);
@@ -23,6 +25,15 @@ export default class AuthGatewayHttp {
   async signUp(data: UserRegister): Promise<any> {
     try {
       const response = await this.httpClient.post(`${this.url}/signup`, data);
+      return response;
+    } catch (error: any) {
+      throw new Error(error.response.data.message);
+    }
+  }
+
+  async storeTokenSpotify(data: any): Promise<any> {
+    try {
+      const response = await this.httpClient.post(`${this.url}/spotifyTokens`, data);
       return response;
     } catch (error: any) {
       throw new Error(error.response.data.message);

@@ -6,7 +6,10 @@ export async function signInRequest(userData: UserLogin) {
     const authGatewayHttp = new AuthGatewayHttp();
 
     try {
-        return await authGatewayHttp.signIn(userData);
+       
+        const response = await authGatewayHttp.signIn(userData);
+         console.log("signrequest:", userData);
+        return response;
     } catch (error: any) {
         console.error("Erro ao fazer requisição:", error);
         toast.error("Ocorreu um erro, por favor tente novamente.");
