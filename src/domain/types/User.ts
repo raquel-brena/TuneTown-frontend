@@ -8,6 +8,7 @@ export type User = {
 };
 
 export type UserWithProfile = User & {
+  id: string;
   profile: Profile
 }
 

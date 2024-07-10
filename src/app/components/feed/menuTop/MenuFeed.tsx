@@ -15,7 +15,7 @@ export const MenuFeed = ({ userAvatar, username }: MenuFeedProps) => {
 
   return (
     <div
-      className="  h-[15%] w-full rounded-lg border-box relative bg-fume 
+      className="  h-[20%] flex w-full rounded-lg border-box relative bg-fume 
       border border-stroke overflow-hidden"
     >
       <div className=" h-full px-3 md:px-6 w-full my-3 items-center justify-center ">

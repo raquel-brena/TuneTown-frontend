@@ -13,6 +13,8 @@ interface InitialPageProps {
   username?: string;
   avatarUrl?: string;
   form?: 'signUp' | 'signIn';
+  refreshToken?: string;
+  accessToken?: string;
 }
 
 export const InitialPage = ({
@@ -21,6 +23,8 @@ export const InitialPage = ({
   username,
   form,
  avatarUrl, 
+  refreshToken,
+  accessToken,
 }: InitialPageProps) => {
   const [signUpOpen, setSignUpOpen] = useState(false);
   const [signInOpen, setSignInOpen] = useState(false);
@@ -31,7 +35,7 @@ export const InitialPage = ({
   }, []);
 
   const AUTH_URL: string =
-    "https://accounts.spotify.com/authorize?client_id=005ea22dc390451090dbba1fc8c8a23a&response_type=code&redirect_uri=http://localhost:3000/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
+    "https://accounts.spotify.com/authorize?client_id=3ac3788f57dc4ea3bccc70d37a4d8697&response_type=code&redirect_uri=http://localhost:3000/callback&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
 
   return (
     <div className="bg-base text-contrast justify-center items-center flex fixed w-screen h-screen text-balance">
@@ -102,7 +106,7 @@ export const InitialPage = ({
                   </button>
                 </Dialog.Close>
 
-                <FormSignUp avatarUrl={avatarUrl} name={name} email={email} username={username} />
+                <FormSignUp avatarUrl={avatarUrl} name={name} email={email} username={username} refreshToken={refreshToken} accessToken={accessToken}/>
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>

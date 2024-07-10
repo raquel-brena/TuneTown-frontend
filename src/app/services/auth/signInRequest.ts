@@ -6,7 +6,6 @@ export async function signInRequest(userData: UserLogin) {
     const authGatewayHttp = new AuthGatewayHttp();
 
     try {
-       
         const response = await authGatewayHttp.signIn(userData);
          console.log("signrequest:", userData);
         return response;

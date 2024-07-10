@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { InitialPage } from "./InitialPage";
-import { useAuth } from "../../infra/contexts/auth/UseAuth";
 
 export const TokenCallback = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState<any>();
-  const { storeTokenSpotify } = useAuth();
 
   const getQueryParams = () => {
     const params = new URLSearchParams(window.location.search);
@@ -18,9 +16,9 @@ export const TokenCallback = () => {
     const fetchTokens = async () => {
       const code = getQueryParams();
 
-      const redirect_uri = 'http://localhost:3000/callback';
-      const clientId = "005ea22dc390451090dbba1fc8c8a23a";
-      const clientSecret = "5293750eea0a4e578449673c5588c21d";
+      const redirect_uri = "http://localhost:3000/callback";
+      const clientId = "3ac3788f57dc4ea3bccc70d37a4d8697";
+      const clientSecret = "20d852123588428daef56b6c9d63431f";
 
       if (!code) {
         console.error("Authorization code is missing");
@@ -43,9 +41,9 @@ export const TokenCallback = () => {
           }
         )
 
-        const accessToken = tokenResponse.data.access_token;
-        const refreshToken = tokenResponse.data.refresh_token;
-
+        console.log(tokenResponse.data)
+        let accessToken = tokenResponse.data.access_token;
+        let refreshToken = tokenResponse.data.refresh_token;
         // Use o token de acesso para obter informações do usuário
         const userResponse = await axios.get("https://api.spotify.com/v1/me", {
           headers: {
@@ -53,8 +51,9 @@ export const TokenCallback = () => {
           },
         })
 
-        setUserData(userResponse.data);
-        storeTokenSpotify(accessToken, refreshToken)
+        console.log(userResponse.data)
+       setUserData({ ...userResponse.data, accessToken, refreshToken });
+
       } catch (error) {
         console.error("Error fetching tokens", error)
       }
@@ -66,8 +65,15 @@ export const TokenCallback = () => {
   return (
     <div>
       {userData ? (
-        <InitialPage form="signUp" avatarUrl={userData.images[1].url} name={userData.display_name} email={userData.email} username={userData.id} />
-
+        <InitialPage
+          form="signUp"
+          avatarUrl={userData.images[1].url}
+          name={userData.display_name}
+          email={userData.email}
+          username={userData.id}
+          accessToken={userData.accessToken}
+          refreshToken={userData.refreshToken}
+        />
       ) : (
         <div>Processando...</div>
       )}

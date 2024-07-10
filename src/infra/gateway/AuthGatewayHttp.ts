@@ -33,7 +33,9 @@ export default class AuthGatewayHttp {
 
   async storeTokenSpotify({ refreshToken, accessToken, userId }: userSpotifyToken): Promise<any> {
     try {
+      console.log("storeTokenSpotify gateway", refreshToken, accessToken, userId);
       const response = await this.httpClient.post(`${this.url}/spotifyTokens`, { refreshToken, accessToken, userId });
+      console.log(response)
       return response;
     } catch (error: any) {
       throw new Error(error.response.data.message);

@@ -15,8 +15,9 @@ export type UserRegister =  {
   username: string;
   password: string;
   avatarUrl?: string;
+  refreshToken?: string;
+  accessToken?: string;
 };
-
 
 export type userSpotifyToken = {
   userId: string;

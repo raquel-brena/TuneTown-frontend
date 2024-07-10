@@ -10,6 +10,7 @@ export async function storeTokenSpotifyService({
   const authGatewayHttp = new AuthGatewayHttp();
 
   try {
+    console.log("storeTokenSpotifyService", accessToken, refreshToken, userId)
     const response = await authGatewayHttp.storeTokenSpotify({
       accessToken,
       refreshToken,
