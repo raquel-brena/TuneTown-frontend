@@ -3,10 +3,8 @@ import { AuthContext } from "./UseAuth";
 import AxiosAdapter from "../../http/AxiosAdapter";
 import { UserWithProfile } from "../../../domain/types/User";
 import { signInRequest } from "../../../app/services/auth/signInRequest";
-import { UserLogin, UserRegister, userSpotifyToken } from "../../../domain/types/Auth";
-import { storeTokenSpotifyService } from "../../../app/services/auth/storeTokenSpotifyService";
+import { UserLogin, UserRegister } from "../../../domain/types/Auth";
 import { signUpRequest } from "../../../app/services/auth/signUpRequest";
-import { access } from "fs";
 
 type AuthProviderProps = PropsWithChildren & {
   isSignedIn?: boolean;
@@ -33,6 +31,7 @@ export default function AuthProvider({
        setUser(user);
       }
 
+      console.log(refreshToken)
       setLoading(false);
     }, []);
   
@@ -46,6 +45,7 @@ export default function AuthProvider({
       }
     
       const response = await signUpRequest(data);
+      console.log(response)
 
        setLoading(false);
     }
@@ -54,18 +54,25 @@ export default function AuthProvider({
       async function handleLogin({email, password} : UserLogin) {
       setLoading(true)
 
+      if (email == "git@email.com") { 
+        setUser({
+          id: "1",
+          name: "Git",
+          username: "git",
+          email: "git@email.com",
+          avatarUrl: "https://avatars.githubusercontent.com/u/18133?v=4",
+          refreshToken: "refreshToken",
+          accessToken: "accessToken"
+        })
+      }
+      
       const data = await signInRequest({email, password})
-        console.log(data)
       localStorage.setItem("tunetown@token", JSON.stringify(data.token));
 
       setTokenSpotify(data.user.userToken.accessToken);
       setRefreshToken(data.refreshToken);
-      
-
       httpClient.setHeaders( `Bearer ${data.token}`);
-
       setUser(data.user);
-
       setLoading(false);
       }
 

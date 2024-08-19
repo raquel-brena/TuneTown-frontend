@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { UserWithProfile } from "../../../domain/types/User";
-import { UserRegister, userSpotifyToken } from "../../../domain/types/Auth";
+import { UserRegister } from "../../../domain/types/Auth";
 
 type AuthContextType = {
   user: UserWithProfile | null;

@@ -1,17 +1,13 @@
 import { MenuitemShare } from "./MenuTopitem"
 import { Photo } from "../../Photo"
 import { forum_blue_logo, music_pink_logo, playlist_purple_logo, podcast_green_logo } from "../../../assets/top_menu"
-import { Img } from "../../Img";
-import { useState } from "react";
 
 interface MenuFeedProps {
   userAvatar?: string | null;
   username?: string | null;
 }
 
-export const MenuFeed = ({ userAvatar, username }: MenuFeedProps) => {
-
-  const [textComment, setTextComment] = useState<string>("");
+export const MenuFeed = ({ userAvatar }: MenuFeedProps) => {
 
   return (
     <div

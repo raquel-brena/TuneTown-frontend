@@ -9,13 +9,11 @@ import {
   foruns,
   foruns2,
   more, more2,
-  config,
-  config2
+  config
 } from "../../assets/left_menu";
 import logo_small_purple from "../../assets/logo_small_purple.svg";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../infra/contexts/auth/UseAuth";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../Sheet";
 
 
 type MenuLeftProps = {

@@ -2,8 +2,6 @@ import { BoxSidebar } from "./BoxSidebar";
 import SearchInput from "./SearchInput";
 import { ShareTuner } from "./ShareTuner";
 import { StatusTuner } from "./StatusTuner";
-import { IoIosSearch } from "react-icons/io";
-
 export const Sidebar = () => {
 
   return (

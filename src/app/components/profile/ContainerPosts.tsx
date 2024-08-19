@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 export const ContainerPosts = ({children} : {children : JSX.Element | JSX.Element[]}) => {
 
 return (

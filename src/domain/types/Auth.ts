@@ -1,4 +1,3 @@
-import { Profile } from "./Profile";
 
 export type AuthProvider = { 
     isSignedIn?: boolean;

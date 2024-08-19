@@ -23,7 +23,7 @@ export type EditProfile = UserRegister & {
   avatarURL?: string | null;
   bio?: string | null;
   favoriteSong?: string;
-  password: null;
+  password: string | null;
 };
 
 export type EditConfig = UserRegister & {

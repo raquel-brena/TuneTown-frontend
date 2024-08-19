@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+
 import { ContainerPosts } from "../components/profile/ContainerPosts";
 import { Card } from "../components/posts/Card";
 import { useAuth } from "../../infra/contexts/auth/UseAuth";

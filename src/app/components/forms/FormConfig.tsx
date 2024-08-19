@@ -14,8 +14,9 @@ export const FormConfig = () => {
   const { register, handleSubmit } = useForm<EditConfig>();
   const { user } = useAuth();
 
-  function sendSubmit(data: EditConfig) {}
-
+  function sendSubmit(data: EditConfig) {
+    console.log(data);
+  }
   return (
     <>
       <SheetHeader>

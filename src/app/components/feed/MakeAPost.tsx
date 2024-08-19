@@ -81,11 +81,11 @@ export const MakeAPost = () => {
     <div className="flex justify-between flex-col w-full h-full box-border">
       <div className="flex w-full justify-between">
         <Dialog.Close asChild>
-          <CloseButton arial-label="Close" />
+          <CloseButton arial-label="Close" onClick={() => {}} />
         </Dialog.Close>
         <p className="">@{user?.name}</p>
         <p className="opacity-0">
-          <CloseButton />
+          <CloseButton onClick={() => {}} />
         </p>
       </div>
       <div className="border-b border-stroke" />

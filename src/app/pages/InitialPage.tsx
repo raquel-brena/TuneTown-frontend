@@ -1,4 +1,4 @@
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
 import spotify_logo from "../assets/spotify_logo.svg";
 import { ThemeButton } from "../components/ThemeButton";
 import { Button } from "../components/Button";
@@ -12,7 +12,7 @@ interface InitialPageProps {
   email?: string;
   username?: string;
   avatarUrl?: string;
-  form?: 'signUp' | 'signIn';
+  form?: "signUp" | "signIn";
   refreshToken?: string;
   accessToken?: string;
 }
@@ -22,7 +22,7 @@ export const InitialPage = ({
   email,
   username,
   form,
- avatarUrl, 
+  avatarUrl,
   refreshToken,
   accessToken,
 }: InitialPageProps) => {
@@ -54,10 +54,12 @@ export const InitialPage = ({
         <ThemeButton />
       </div>
 
-      <div className="relative flex justify-center w-full  gap-40 items-center">
-        <div className=" relative  md:h-2/4 w-auto hidden md:flex ">
-          <img className="w-full h-auto" src={logo} alt="Logo" />
-        </div>
+      <div className="relative md:flex-row flex-col flex justify-center w-full gap-40 items-center">
+        <img
+          className="relative md:h-[28rem] h-60  hidden w-auto md:flex "
+          src={logo}
+          alt="Logo"
+        />
 
         <div className="flex flex-col w-full md:w-1/4 h-[50%] space-y-6 p-12 md:p-0">
           <h1 className="font-semibold  text-3xl  outline-none pointer-events-none ">
@@ -66,7 +68,6 @@ export const InitialPage = ({
           <div className="justify-center overflow-hidden">
             <Button
               onClick={() => {
-              
                 window.location.href = AUTH_URL;
               }}
               bg="bg-white"
@@ -106,7 +107,14 @@ export const InitialPage = ({
                   </button>
                 </Dialog.Close>
 
-                <FormSignUp avatarUrl={avatarUrl} name={name} email={email} username={username} refreshToken={refreshToken} accessToken={accessToken}/>
+                <FormSignUp
+                  avatarUrl={avatarUrl}
+                  name={name}
+                  email={email}
+                  username={username}
+                  refreshToken={refreshToken}
+                  accessToken={accessToken}
+                />
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>

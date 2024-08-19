@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import { InitialPage } from "./InitialPage";
 
 export const TokenCallback = () => {
-  const navigate = useNavigate();
   const [userData, setUserData] = useState<any>();
 
   const getQueryParams = () => {

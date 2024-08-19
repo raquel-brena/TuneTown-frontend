@@ -1,6 +1,5 @@
 import { Button } from "../Button";
 import Input from "../Input";
-import spotify_logo from "../../assets/spotify_logo.svg";
 import { useForm } from "react-hook-form";
 import { EditProfile } from "../../../domain/types/Profile";
 import { useAuth } from "../../../infra/contexts/auth/UseAuth";
@@ -11,7 +10,9 @@ export const FormEditProfile = () => {
   const { register, handleSubmit } = useForm<EditProfile>();
   const { user } = useAuth();
 
-  function sendSubmit(data: EditProfile) {}
+  function sendSubmit(data: EditProfile) {
+    console.log(data);
+  }
 
   return (
     <form

@@ -3,7 +3,6 @@ import { UserRegister } from "../../../domain/types/Auth";
 import Input from "../Input";
 import { useForm } from "react-hook-form";
 import { Button } from "../Button";
-import { signUpRequest } from "../../services/auth/signUpRequest";
 import { useAuth } from "../../../infra/contexts/auth/UseAuth";
 
 interface FormSignUpProps {
@@ -15,7 +14,7 @@ interface FormSignUpProps {
   accessToken?: string;
 }
 export const FormSignUp = ({ name, email, username, avatarUrl, refreshToken, accessToken }: FormSignUpProps) => {
-  const { register, handleSubmit, watch } = useForm<UserRegister>({
+  const { register, handleSubmit } = useForm<UserRegister>({
     defaultValues: {
       name,
       email,

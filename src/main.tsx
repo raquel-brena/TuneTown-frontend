@@ -6,7 +6,6 @@ import "./index.css";
 import { Profile } from './app/pages/Profile.tsx';
 import { InitialPage } from './app/pages/InitialPage.tsx';
 import { ContainerCentral } from './app/pages/ContainerCentral.tsx';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import AuthProvider from "./infra/contexts/auth/AuthProvider.tsx";
 import { ProtectedComponent } from './infra/contexts/auth/ProtectedRoute.tsx';
 import { Feed } from './app/pages/Feed.tsx';
@@ -85,12 +84,9 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GoogleOAuthProvider clientId="261384658112-lkecapjtglp4l818sppi3d3695jaml9k.apps.googleusercontent.com">
       <AuthProvider isSignedIn={false}>
-
         <Toaster richColors />
         <RouterProvider router={router} />
       </AuthProvider>
-    </GoogleOAuthProvider>
   </React.StrictMode>
 );

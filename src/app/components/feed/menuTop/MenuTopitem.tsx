@@ -20,7 +20,7 @@ export const MenuitemShare = ({ src, alt, name }: MenuitemShareProps) => {
         transition-all"
         >
           <div className=" flex w-[25%] h-auto">
-            <Img src={src} alt="Logo" />
+            <Img src={src} alt={alt ? alt : ''} />
           </div>
           {name}
         </button>

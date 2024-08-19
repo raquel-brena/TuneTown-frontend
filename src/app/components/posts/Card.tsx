@@ -1,13 +1,12 @@
 
 import { Photo } from "../Photo";
-import { IoHeartOutline } from "react-icons/io5";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { HeartButton } from "./HeartButton";
 
 
 interface CardProps {
   author: string;
-  authorImg?: string;
+  authorImg?: string | null;
   track: any;
   content: string;
   created_at: string;
