@@ -1,30 +1,90 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# TuneTown - Desenvolvimento de Sistemas Web I
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="https://github.com/raquel-brena/TuneTown/assets/108936463/03cf6ac1-26af-4b77-853d-7845f42e3695" width="150" title="TuneTown logo">
+  <div align="center">
+    <a href="https://www.figma.com/file/iVpO60XiZhKMpQHhY1grHQ/TuneTown%2C-web?type=design&node-id=227%3A1116&mode=design&t=xxiYHaZKLoFouYhh-1" title="Figma Project">Figma Project</a> ·
+    <a href="https://github.com/raquel-brena/TuneTown/issues" title="Report Bug">Report Bug</a> ·
+    <a href="https://github.com/raquel-brena/TuneTown/issues" title="Request Feature">Request Feature</a>
+  </div>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Projeto de rede social simples desenvolvido como parte da disciplina "Desenvolvimento de Sistemas Web I" na UFRN.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📝 Sobre
 
-- Configure the top-level `parserOptions` property like this:
+TuneTown é uma aplicação web de uma rede social, desenvolvida com React.js, utilizando Vite como bundler. O objetivo principal é proporcionar uma interface interativa e amigável para compartilhamento de conteúdos.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+![image](https://github.com/user-attachments/assets/5212d560-d051-4c63-b5b0-eaa19614c177)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+---
+
+## 🚀 Tecnologias
+
+As principais tecnologias usadas neste projeto são:
+- **React**
+- **Tailwind CSS**
+- **Radix UI**
+- **Docker**
+
+---
+
+## 🛠️ Configuração do Ambiente
+
+### Pré-requisitos
+Antes de começar, certifique-se de ter o Docker instalado em sua máquina.
+
+### Instalação e Execução
+
+Para rodar o projeto localmente, siga os passos abaixo:
+
+1. **Clone este repositório:**
+   ```bash
+   git clone https://github.com/raquel-brena/TuneTown-frontend.git
+   ```
+
+2. **Navegue até o diretório do projeto:**
+   ```bash
+   cd web1
+   ```
+
+3. **Inicie o projeto com Docker:**
+   - **Primeira execução (construção de imagens):**
+     ```bash
+     docker-compose up --build
+     ```
+   - **Execução normal (em segundo plano):**
+     ```bash
+     docker-compose up -d
+     ```
+
+4. **Verifique se os contêineres estão rodando:**
+   ```bash
+   docker-compose ps
+   ```
+
+5. **Acesse a aplicação no navegador:**
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🔗 API Referências
+
+A aplicação faz uso da API do Spotify para algumas funcionalidades de busca:
+- [Spotify API](https://developer.spotify.com/)
+
+---
+
+## 👥 Autores
+
+- **Raquel Brena Silva de Lima** - [GitHub](https://github.com/raquel-brena)
+
+---
+
+
+[🔼 Voltar ao topo](#TuneTown---Desenvolvimento-de-Sistemas-Web-I)
